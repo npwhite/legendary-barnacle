@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+// Joke represents a joke returned from the https://github.com/15Dkatz/official_joke_api api
 type Joke struct {
 	ID        int
 	Type      string
@@ -13,6 +14,7 @@ type Joke struct {
 	Punchline string
 }
 
+// RandomJokeOfType fetches a random joke of the given type
 func RandomJokeOfType(jokeType string) (*Joke, error) {
 	resp, err := http.Get(fmt.Sprintf("https://official-joke-api.appspot.com/jokes/%s/random", jokeType))
 	if err != nil {
